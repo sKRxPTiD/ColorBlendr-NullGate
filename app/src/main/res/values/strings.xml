@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">ColorBlendr</string>
+    <string name="app_name" translatable="false">ColorBlendr — NullGate</string>
     <string name="app_moto">Express yourself with colors</string>
 
     <!-- Tabs -->
