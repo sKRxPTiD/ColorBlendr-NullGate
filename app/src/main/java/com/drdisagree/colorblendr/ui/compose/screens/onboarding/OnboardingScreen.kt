@@ -170,7 +170,9 @@ fun OnboardingScreen(
             Button(
                 onClick = {
                     if (pagerState.currentPage == 3) {
-                        if (!permissionsGranted(context) || !hasStoragePermission()) {
+                        // Manual NullGate leases need neither wallpaper files nor a background service.
+                        if (WORKING_METHOD != WorkMethod.NULLGATE &&
+                            (!permissionsGranted(context) || !hasStoragePermission())) {
                             onError(context.getString(R.string.grant_all_permissions))
                             return@Button
                         }

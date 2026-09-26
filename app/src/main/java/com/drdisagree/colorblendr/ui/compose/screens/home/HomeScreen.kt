@@ -235,6 +235,8 @@ fun HomeScreen(
 
     LaunchedEffect(Unit) {
         delay(2000.milliseconds)
+        // NullGate is foreground/manual: do not request unrelated media access or start wallpaper jobs.
+        if (com.drdisagree.colorblendr.data.common.Utilities.isNullGateMode()) return@LaunchedEffect
         try {
             if (permissionsGranted(context)) {
                 if (isServiceNotRunning && success) {
