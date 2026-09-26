@@ -314,6 +314,11 @@ object NullGateThemeClient {
                 markUnknown("NullGate request could not be launched while ColorBlendr was visible.")
                 return@post
             }
+            if (!trustedControllerInstalled(appContext)) {
+                inFlightInThisProcess = false
+                markUnknown("Trusted NullGate controller is unavailable; cleanup remains unconfirmed.")
+                return@post
+            }
             try {
                 currentLauncher(intent)
             } catch (_: RuntimeException) {
